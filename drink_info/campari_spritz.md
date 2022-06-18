@@ -1,6 +1,6 @@
 ---
 title: 'Campari Spritz'
-drinkType: 'spritz'
-img: '/public/drink_imgs/temp'
+drinkType: 'prosecco'
+img: '/drink_imgs/temp.jpg'
 ---
 A more bitter cousin of the aperol spritz 

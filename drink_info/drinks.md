@@ -1,13 +1,3 @@
-- Negroni
-- Aperol Spritz
-- Brown Derby
-- Bees Knees
-- Daiquiri
-- Manhattan
-- Brandy Flip
-- Gimlet
-- Clover Club
-- French 75
-- pinkgin og tonic
-- Aperol sour
-- Campari spritz
+---
+"drinks_id": ["bees_knees", "clover_club", "aperol_sour", "french_75", "gimlet", "pinkgin_and_tonic", "negroni", "aperol_Spritz", "brandy_Flip", "brown_Derby", "campari_spritz", "daiquiri", "manhattan"]
+---

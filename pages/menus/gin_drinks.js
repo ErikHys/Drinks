@@ -4,36 +4,47 @@ import {drink} from "./drink";
 
 
 export async function getServerSideProps(context) {
-    const res = await fetch("http://localhost:3000/api/drinks/gin_drink_temp")
+    const res = await fetch("http://localhost:3000/api/drinks/groups/drinks")
     const rawData = await res.json()
     const a = rawData.replace('\n', '')
-    const data = JSON.parse(a)
-    if (!data) {
+    let jsonData = JSON.parse(a)
+    jsonData.ids = jsonData.ids.split(',')
+    const allData = (await Promise.all(jsonData.ids.map(async (id) => {
+        const res = await fetch("http://localhost:3000/api/drinks/" + id)
+        const rawData = await res.json()
+        const a = rawData.replace('\n', '')
+        let tempData = {"id": id}
+        try {
+            tempData = JSON.parse(a)
+        } catch (e) {
+            console.error(e)
+            console.error("id:" + id)
+        }
+        const data = tempData
+        return data;
+    }))).filter((drinkInfo) => {
+        return drinkInfo.type.includes('gin');
+    });
+
+    if (!allData) {
         return {
             notFound: true,
         }
     }
 
     return {
-        props: { data }, // will be passed to the page component as props
+        props: { allData }, // will be passed to the page component as props
     }
 }
 
-export default function GinDrinks({ data }) {
+export default function GinDrinks({ allData }) {
     return (
         <div className={styles.container}>
             <main className={styles.main}>
-                <h1 className={styles.title}>Gin drinks...</h1>
+                <h1 className={styles.title}>Gin drinks</h1>
 
                 <div className={styles.grid}>
-                    <a href="/menus/gin_drinks" className={styles.card}>
-                        <>{drink(data)}</>
-                    </a>
-
-                    <a href="/menus/whisky_drinks" className={styles.card}>
-                        <h2>Whisky drinks &rarr;</h2>
-                        <p>Taste our whisky sours, Brown derby&apos;s and more!</p>
-                    </a>
+                    {allData.map(drink)}
                 </div>
                 <h2 className={styles.description}>
                     <Link href="/">
