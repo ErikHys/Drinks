@@ -17,10 +17,12 @@ export async function getServerSideProps({ params }){
 export default function Order({ queueInfo }){
     return (
         <h2 className={styles.description}>
-            <a href="/queue/queue">
-                Order received, go to queue!
-                Queue number: {queueInfo.number}
-            </a>
+            <Link href="/queue/queue">
+                <a>
+                    Order received, go to queue!
+                    Queue number: {queueInfo.number}
+                </a>
+            </Link>
         </h2>
     );
 

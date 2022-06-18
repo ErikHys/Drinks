@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -19,34 +20,37 @@ export default function Home() {
 
         </h2>
         <div className={styles.grid}>
-          <a href="/menus/gin_drinks" className={styles.card}>
-            <h2>Gin drinks &rarr;</h2>
-            <p>Find our sweet, sour and herbal gin drinks here!</p>
-          </a>
-
-          <a href="/menus/whisky_drinks" className={styles.card}>
-            <h2>Whisky drinks &rarr;</h2>
-            <p>Taste our whisky sours, Brown derby&apos;s and more!</p>
-          </a>
-
-          <a href="/menus/rum_drinks" className={styles.card}>
-            <h2>Rum drinks &rarr;</h2>
-            <p>Discover the pirate inside you!</p>
-          </a>
-
-          <a
-            href="/menus/prosecco_drinks"
-            className={styles.card}
-          >
-            <h2>Prosecco drinks &rarr;</h2>
-            <p>
-             Want something bubbly?
-            </p>
-          </a>
+          <Link href="/menus/gin_drinks">
+            <a  className={styles.card}>
+              <h2>Gin drinks &rarr;</h2>
+              <p>Find our sweet, sour and herbal gin drinks here!</p>
+            </a>
+          </Link>
+          <Link href="/menus/whisky_drinks">
+            <a className={styles.card}>
+              <h2>Whisky drinks &rarr;</h2>
+              <p>Taste our whisky sours, Brown derby&apos;s and more!</p>
+            </a>
+          </Link>
+          <Link href="/menus/rum_drinks">
+            <a className={styles.card}>
+              <h2>Rum drinks &rarr;</h2>
+              <p>Discover the pirate inside you!</p>
+            </a>
+          </Link>
+          <Link href="/menus/prosecco_drinks">
+            <a className={styles.card}>
+              <h2>Prosecco drinks &rarr;</h2>
+              <p>
+               Want something bubbly?
+              </p>
+            </a>
+          </Link>
         </div>
       </main>
 
       <footer className={styles.footer}>
+
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"

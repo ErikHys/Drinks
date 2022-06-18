@@ -5,6 +5,7 @@ import {drinkRemove} from "../menus/drink";
 
 export async function getServerSideProps(context) {
     const res = await fetch("http://localhost:3000/api/queue")
+    console.log(res)
     const rawData = await res.json()
     const a = rawData.replace('\n', '')
 
@@ -12,21 +13,22 @@ export async function getServerSideProps(context) {
     console.log(a[33])
     let jsonData = JSON.parse(a)
     jsonData.ids = jsonData.ids.split(',')
-    const allData = (await Promise.all(jsonData.ids.map(async (id) => {
-        const res = await fetch("http://localhost:3000/api/drinks/" + id)
-        const rawData = await res.json()
-        const a = rawData.replace('\n', '')
-        let tempData = {"id": id}
-        try {
-            tempData = JSON.parse(a)
-        } catch (e) {
-            console.error(e)
-            console.error("id:" + id)
-        }
-        const data = tempData
-        return data;
-    })));
-
+    if (jsonData.ids.length > 0) {
+        const allData = (await Promise.all(jsonData.ids.map(async (id) => {
+            const res = await fetch("http://localhost:3000/api/drinks/" + id)
+            const rawData = await res.json()
+            const a = rawData.replace('\n', '')
+            let tempData = {"id": id}
+            try {
+                tempData = JSON.parse(a)
+            } catch (e) {
+                console.error(e)
+                console.error("id:" + id)
+            }
+            const data = tempData
+            return data;
+        })));
+    }
     if (!allData) {
         return {
             notFound: true,
