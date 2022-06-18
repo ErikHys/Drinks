@@ -4,7 +4,7 @@ import {DrinkRemove} from "../menus/gin_drinks";
 
 
 export async function getServerSideProps(context) {
-    const res = await fetch("http://localhost:3000/api/queue")
+    const res = await fetch("https://drinks-4mom8m8rz-erikhys.vercel.app/api/queue")
     const rawData = await res.json()
     const a = rawData.replace('\n', '')
     let jsonData = JSON.parse(a)
@@ -12,7 +12,7 @@ export async function getServerSideProps(context) {
     let allData = null
     if (jsonData.ids.length > 0 && jsonData.ids[0] !== '') {
         allData = (await Promise.all(jsonData.ids.map(async (id) => {
-            const res = await fetch("http://localhost:3000/api/drinks/" + id)
+            const res = await fetch("https://drinks-4mom8m8rz-erikhys.vercel.app/api/drinks/" + id)
             const rawData = await res.json()
             const a = rawData.replace('\n', '')
             let tempData = {"id": id}
