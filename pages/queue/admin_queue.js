@@ -5,16 +5,13 @@ import {drinkRemove} from "../menus/drink";
 
 export async function getServerSideProps(context) {
     const res = await fetch("http://localhost:3000/api/queue")
-    console.log(res)
     const rawData = await res.json()
     const a = rawData.replace('\n', '')
-
-    console.log(a)
-    console.log(a[33])
     let jsonData = JSON.parse(a)
     jsonData.ids = jsonData.ids.split(',')
-    if (jsonData.ids.length > 0) {
-        const allData = (await Promise.all(jsonData.ids.map(async (id) => {
+    let allData = null
+    if (jsonData.ids.length > 0 && jsonData.ids[0] !== '') {
+        allData = (await Promise.all(jsonData.ids.map(async (id) => {
             const res = await fetch("http://localhost:3000/api/drinks/" + id)
             const rawData = await res.json()
             const a = rawData.replace('\n', '')
@@ -30,8 +27,9 @@ export async function getServerSideProps(context) {
         })));
     }
     if (!allData) {
+        allData = []
         return {
-            notFound: true,
+            props: { allData },
         }
     }
 
