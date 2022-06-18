@@ -8,6 +8,7 @@ export async function getServerSideProps(context) {
     const rawData = await res.json()
     const a = rawData.replace('\n', '')
     let jsonData = JSON.parse(a)
+    console.log(a)
     jsonData.ids = jsonData.ids.split(',')
     const allData = (await Promise.all(jsonData.ids.map(async (id) => {
         const res = await fetch("http://localhost:3000/api/drinks/" + id)
