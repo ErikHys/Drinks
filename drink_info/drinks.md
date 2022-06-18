@@ -1,0 +1,14 @@
+- Negroni
+- Aperol Spritz
+- Brown Derby
+- Bees Knees
+- Daiquiri
+- Manhattan
+- Brandy Flip
+- Gimlet
+- Clover Club
+- Gordon's Breakfast
+- French 75
+- pinkgin og tonic
+- Aperol sour
+- Campari spritz
