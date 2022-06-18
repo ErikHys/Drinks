@@ -1,6 +1,6 @@
 ---
 title: 'Manhattan'
-drinkType: 'whiskey'
+drinkType: 'whisky'
 img: '/drink_imgs/temp.jpg'
 ---
 empty

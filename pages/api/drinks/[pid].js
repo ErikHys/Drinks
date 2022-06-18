@@ -10,8 +10,6 @@ export default async function handler (req, res) {
     const { pid } = req.query
     const id = pid
     const drinkDirectory = path.join(process.cwd(), 'drink_info')
-    // res.statusCode = 200
-    // res.end(`Post: ${id}`)
     const fullPath = path.join(drinkDirectory, `${id}.md`);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const matterResult = matter(fileContents);
