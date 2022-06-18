@@ -1,29 +1,6 @@
 import styles from "../../styles/Home.module.css";
-import utilStyles from '../../styles/utils.module.css';
 import Link from "next/link";
 import {drink} from "./drink";
-import Image from 'next/image';
-
-//
-// export function drink(data){
-//     console.log(data)
-//     return (
-//         <>
-//             <h1>
-//                 {data.title}
-//             </h1>
-//             <div dangerouslySetInnerHTML={{ __html: data.contentHtml}} />
-//             <Image
-//                 priority
-//                 src={data.img}
-//                 className={utilStyles.borderCircle}
-//                 height={144}
-//                 width={144}
-//                 alt={data.title}
-//             />
-//         </>
-//     );
-// }
 
 
 export async function getServerSideProps(context) {

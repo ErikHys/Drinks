@@ -7,7 +7,6 @@
 - Brandy Flip
 - Gimlet
 - Clover Club
-- Gordon's Breakfast
 - French 75
 - pinkgin og tonic
 - Aperol sour
