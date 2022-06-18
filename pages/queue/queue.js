@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styles from '../../styles/Home.module.css'
-import {DrinkNoLink} from "../menus/drink";
+import {DrinkNoLink} from "../menus/gin_drinks";
 
 
 export async function getServerSideProps(context) {

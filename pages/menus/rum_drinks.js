@@ -1,6 +1,6 @@
 import styles from "../../styles/Home.module.css";
 import Link from "next/link";
-import {Drink} from "./drink";
+import {Drink} from "./gin_drinks";
 
 
 export async function getServerSideProps(context) {
