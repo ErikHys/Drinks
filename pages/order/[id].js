@@ -17,7 +17,7 @@ export async function getServerSideProps({ params }){
 export default function Order({ queueInfo }){
     return (
         <h2 className={styles.description}>
-            <a href="/">
+            <a href="/queue/queue">
                 Order received, go to queue!
                 Queue number: {queueInfo.number}
             </a>
