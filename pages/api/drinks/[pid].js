@@ -20,6 +20,5 @@ export default async function handler (req, res) {
     const contentHtml = processedContent.toString()
     res.statusCode = 200
     // res.json(matterResult.data);
-    res.json(`{Id: ${id}, contentHtml: ${contentHtml}, title: ${matterResult.data['title']}, 
-    img: ${matterResult.data['img']}, type: ${matterResult.data['drinkType']}}`);
+    res.json(`{"id": "${id}", "contentHtml": "${contentHtml}", "title": "${matterResult.data['title']}", "img": "${matterResult.data['img']}", "type": "${matterResult.data['drinkType']}"}`);
 }

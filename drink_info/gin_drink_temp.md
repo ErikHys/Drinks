@@ -1,7 +1,7 @@
 ---
 title: 'Gin drink temp'
 drinkType: 'gin'
-img: '/public/drink_imgs/temp'
+img: '/drink_imgs/temp.jpg'
 ---
 
 Gin drink that taste gin...
