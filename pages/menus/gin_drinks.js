@@ -68,7 +68,7 @@ export function DrinkRemove(data){
     );
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
     const res = await fetch("https://drinks-4mom8m8rz-erikhys.vercel.app/api/drinks/groups/drinks")
     const rawData = await res.json()
     const a = rawData.replace('\n', '')
