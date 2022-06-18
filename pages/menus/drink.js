@@ -4,7 +4,7 @@ import styles from "../../styles/Home.module.css";
 import Link from "next/link";
 
 
-export function Drink(data){
+export default function Drink(data){
     return (
         <Link href={"/order/" + data.id}>
             <a className={styles.card}>
