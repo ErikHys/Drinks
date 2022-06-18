@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styles from '../../styles/Home.module.css'
-import {drinkRemove} from "../menus/drink";
+import {DrinkRemove} from "../menus/drink";
 
 
 export async function getServerSideProps(context) {
@@ -45,7 +45,7 @@ export default function AdminQueue({ allData }){
                 <h1 className={styles.title}>Queue</h1>
 
                 <div className={styles.grid}>
-                    {allData.map(drinkRemove)}
+                    {allData.map(DrinkRemove)}
                 </div>
                 <h2 className={styles.description}>
                     <Link href="/">

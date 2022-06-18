@@ -4,7 +4,7 @@ import styles from "../../styles/Home.module.css";
 import Link from "next/link";
 
 
-export function drink(data){
+export function Drink(data){
     return (
         <Link href={"/order/" + data.id}>
             <a className={styles.card}>
@@ -25,7 +25,7 @@ export function drink(data){
     );
 }
 
-export function drinkNoLink(data){
+export function DrinkNoLink(data){
     return (
         <main className={styles.card}>
             <h1>
@@ -46,7 +46,7 @@ export function drinkNoLink(data){
 
 
 
-export function drinkRemove(data){
+export function DrinkRemove(data){
     return (
         <button className={styles.card} onClick={() => {
             fetch("http://localhost:3000/api/queue/" + data.id);

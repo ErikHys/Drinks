@@ -1,6 +1,6 @@
 import styles from "../../styles/Home.module.css";
 import Link from "next/link";
-import {drink} from "./drink";
+import {Drink} from "./drink";
 
 
 export async function getServerSideProps(context) {
@@ -43,7 +43,7 @@ export default function ProseccoDrinks({ allData }) {
                 <h1 className={styles.title}>Prosecco!</h1>
 
                 <div className={styles.grid}>
-                    {allData.map(drink)}
+                    {allData.map(Drink)}
                 </div>
                 <h2 className={styles.description}>
                     <Link href="/">
