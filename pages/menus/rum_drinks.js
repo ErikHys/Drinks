@@ -3,7 +3,7 @@ import Link from "next/link";
 import {Drink} from "./gin_drinks";
 
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
     const res = await fetch(process.env.VERCEL_URL + "/api/drinks/groups/drinks")
     const rawData = await res.json()
     const a = rawData.replace('\n', '')
