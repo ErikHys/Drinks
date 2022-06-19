@@ -69,14 +69,14 @@ export function DrinkRemove(data){
 }
 
 export async function getServerSideProps(context) {
-    const res = await fetch("http://localhost:3000/api/drinks/groups/drinks")
+    const res = await fetch("https://drinks-tau.vercel.app/api/drinks/groups/drinks")
     const rawData = await res.json()
     const a = rawData.replace('\n', '')
     let jsonData = JSON.parse(a)
     console.log(a)
     jsonData.ids = jsonData.ids.split(',')
     const allData = (await Promise.all(jsonData.ids.map(async (id) => {
-        const res = await fetch("http://localhost:3000/api/drinks/" + id)
+        const res = await fetch("https://drinks-tau.vercel.app/api/drinks/" + id)
         const rawData = await res.json()
         const a = rawData.replace('\n', '')
         let tempData = {"id": id}

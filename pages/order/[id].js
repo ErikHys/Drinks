@@ -2,7 +2,7 @@ import Link from "next/link";
 import styles from "../../styles/Home.module.css";
 
 export async function getServerSideProps({ params }){
-    const res = await fetch("http://localhost:3000/api/order/" + params.id)
+    const res = await fetch("https://drinks-tau.vercel.app/api/order/" + params.id)
     const rawData = await res.json()
     const a = rawData.replace('\n', '')
     console.log(a)
