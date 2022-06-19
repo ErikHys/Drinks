@@ -49,7 +49,7 @@ export function DrinkNoLink(data){
 export function DrinkRemove(data){
     return (
         <button className={styles.card} onClick={() => {
-            fetch("/api/queue/" + data.id);
+            fetch(process.env.VERCEL_URL + "/api/queue/" + data.id);
             window.location.reload()
         }}>
             <h1>
@@ -69,7 +69,6 @@ export function DrinkRemove(data){
 }
 
 export async function getServerSideProps(context) {
-    console.log(process.env.VERCEL_URL + "/api/drinks/groups/drinks")
     const res = await fetch(process.env.VERCEL_URL + "/api/drinks/groups/drinks")
     const rawData = await res.json()
     const a = rawData.replace('\n', '')
