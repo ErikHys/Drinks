@@ -11,13 +11,13 @@ export default async function handler (req, res) {
     const { pid } = req.query
     const rawQueue = await client.fetch(`*[_type == "drink" && name == $pid]`, {pid: pid});
     const queue = rawQueue.map((drink) => {
-        return drink.name
+        return drink._id
     })
     const newFile = queue.join(',')
     console.log(`queue: ${newFile} from delete`)
     console.log(`Attempting to delete: ${pid}`)
-    client.delete({query: `*[_type == "drink" && name == ${pid}][0]`}).then(() => {
-        console.log(`Drink removed ${pid}` )
+    client.delete(queue[0]._id).then(() => {
+        console.log(`Drink removed ${pid}, id: ${queue[0]._id}` )
     }).catch((err) => {
         console.error('Delete failed: ', err.message)
     })
