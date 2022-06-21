@@ -12,7 +12,7 @@ export default async function handler (req, res) {
     })
     const { pid } = req.query
     client.delete({query: `*[_type == "drink" && name == ${pid}][0]`}).then(() => {
-        console.log('Drink removed')
+        console.log(`Drink removed ${pid}` )
     }).catch((err) => {
             console.error('Delete failed: ', err.message)
         })
