@@ -49,8 +49,8 @@ export function DrinkNoLink(data){
 export function DrinkRemove(data){
     return (
         <button className={styles.card} onClick={ () => {
-            fetch(process.env.siteUrl + "/api/queue/" + data.id).then(r => {
-                console.log(process.env.siteUrl + "/api/queue/" + data.id)
+            fetch( "/api/queue/" + data.id).then(r => {
+                console.log("/api/queue/" + data.id)
             });
             // window.location.reload();
         }}>
