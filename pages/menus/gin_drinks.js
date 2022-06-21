@@ -48,9 +48,11 @@ export function DrinkNoLink(data){
 
 export function DrinkRemove(data){
     return (
-        <button className={styles.card} onClick={() => {
-            fetch("/api/queue/" + data.id);
-            window.location.reload()
+        <button className={styles.card} onClick={ () => {
+            fetch(process.env.siteUrl + "/api/queue/" + data.id).then(r => {
+                console.log(process.env.siteUrl + "/api/queue/" + data.id)
+            });
+            // window.location.reload();
         }}>
             <h1>
                 {data.title}
@@ -68,7 +70,7 @@ export function DrinkRemove(data){
     );
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
     const res = await fetch(process.env.siteUrl + "/api/drinks/groups/drinks")
     const rawData = await res.json()
     const a = rawData.replace('\n', '')
@@ -85,8 +87,7 @@ export async function getStaticProps(context) {
             console.error(e)
             console.error("id:" + id)
         }
-        const data = tempData
-        return data;
+        return tempData;
     }))).filter((drinkInfo) => {
         return drinkInfo.type.includes('gin');
     });

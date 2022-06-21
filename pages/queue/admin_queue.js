@@ -1,10 +1,9 @@
 import Link from 'next/link';
 import styles from '../../styles/Home.module.css'
 import {DrinkRemove} from "../menus/gin_drinks";
-import { withRouter } from 'next/router'
 
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
     const res = await fetch(process.env.siteUrl + "/api/queue")
     const rawData = await res.json()
     const a = rawData.replace('\n', '')
@@ -23,8 +22,8 @@ export async function getServerSideProps(context) {
                 console.error(e)
                 console.error("id:" + id)
             }
-            const data = tempData
-            return data;
+
+            return tempData;
         })));
     }
     if (!allData) {
