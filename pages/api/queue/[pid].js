@@ -21,6 +21,13 @@ export default async function handler (req, res) {
     }).catch((err) => {
         console.error('Delete failed: ', err.message)
     })
+    const rawQueue1 = await client.fetch(`*[_type == "drink" && name != ""]`);
+    const queue1 = rawQueue1.map((drink) => {
+        return drink.name
+    })
+    const newFile1 = queue1.join(',')
+    console.log(`queue: ${newFile1} after delete`)
+
     res.statusCode = 200
     res.json(`{"number": ${0}}`)
 }
