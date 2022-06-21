@@ -52,7 +52,7 @@ export function DrinkRemove(data){
             fetch( "/api/queue/" + data.id).then(r => {
                 console.log("/api/queue/" + data.id)
             });
-            // window.location.reload();
+            window.location.reload();
         }}>
             <h1>
                 {data.title}

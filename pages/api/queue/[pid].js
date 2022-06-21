@@ -9,7 +9,7 @@ export default async function handler (req, res) {
         useCdn: false
     })
     const { pid } = req.query
-    const rawQueue = await client.fetch(`*[_type == "drink" && name != ""]`);
+    const rawQueue = await client.fetch(`*[_type == "drink" && name == ${pid}]`);
     const queue = rawQueue.map((drink) => {
         return drink.name
     })
