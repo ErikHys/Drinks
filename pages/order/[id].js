@@ -5,7 +5,6 @@ export async function getServerSideProps({ params }){
     const res = await fetch(process.env.siteUrl + "/api/order/" + params.id)
     const rawData = await res.json()
     const a = rawData.replace('\n', '')
-    console.log(a)
     const queueInfo = JSON.parse(a)
     return {
         props: {

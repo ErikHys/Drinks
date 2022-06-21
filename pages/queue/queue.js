@@ -8,8 +8,6 @@ export async function getServerSideProps(context) {
     const rawData = await res.json()
     const a = rawData.replace('\n', '')
 
-    console.log(a)
-    console.log(a[69])
     let jsonData = JSON.parse(a)
     jsonData.ids = jsonData.ids.split(',')
     const allData = (await Promise.all(jsonData.ids.map(async (id) => {
