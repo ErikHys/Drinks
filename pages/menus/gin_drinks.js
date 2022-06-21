@@ -52,7 +52,7 @@ export function DrinkRemove(data){
             fetch( process.env.siteUrl + "/api/queue/" + data.id).then(r => {
                 console.log(process.env.siteUrl + "/api/queue/" + data.id)
             });
-            window.location.reload();
+            // window.location.reload();
         }}>
             <h1>
                 {data.title}
