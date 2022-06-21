@@ -9,14 +9,14 @@ export default async function handler (req, res) {
         useCdn: false
     })
     const { pid } = req.query
-    const rawQueue = await client.fetch(`*[_type == "drink" && name == ${pid}]`);
+    const rawQueue = await client.fetch(`*[_type == "drink" && name == $pid][0]`, {pid: pid});
     const queue = rawQueue.map((drink) => {
         return drink.name
     })
     const newFile = queue.join(',')
     console.log(`queue: ${newFile} from delete`)
     console.log(`Attempting to delete: ${pid}`)
-    client.delete({query: `*[_type == "drink" && name == ${pid}]`}).then(() => {
+    client.delete({query: `*[_type == "drink" && name == ${pid}][0]`}).then(() => {
         console.log(`Drink removed ${pid}` )
     }).catch((err) => {
         console.error('Delete failed: ', err.message)
