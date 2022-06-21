@@ -16,8 +16,8 @@ export default async function handler (req, res) {
     const newFile = queue.join(',')
     console.log(`queue: ${newFile} from delete`)
     console.log(`Attempting to delete: ${pid}`)
-    client.delete({query: `*[_type == "drink" && name == $pid][0]`, params: {pid: pid}}).then(() => {
-        console.log(`Drink removed ${pid}, id: ${queue[0]._id}` )
+    client.delete(queue[0]).then(() => {
+        console.log(`Drink removed ${pid}, id: ${queue[0]}` )
     }).catch((err) => {
         console.error('Delete failed: ', err.message)
     })
