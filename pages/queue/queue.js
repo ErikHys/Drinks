@@ -3,14 +3,14 @@ import styles from '../../styles/Home.module.css'
 import {DrinkNoLink} from "../menus/gin_drinks";
 
 
-export async function getServerSideProps(context) {
-    const res = await fetch(process.env.siteUrl + "/api/queue")
+export async function getServerSideProps() {
+    const res = await fetch(process.env.siteUrl + "/api/queue");
     const rawData = await res.json()
     const a = rawData.replace('\n', '')
 
     let jsonData = JSON.parse(a)
     jsonData.ids = jsonData.ids.split(',')
-    const allData = (await Promise.all(jsonData.ids.map(async (id) => {
+    let allData = (await Promise.all(jsonData.ids.map(async (id) => {
         const res = await fetch(process.env.siteUrl + "/api/drinks/" + id)
         const rawData = await res.json()
         const a = rawData.replace('\n', '')
@@ -21,13 +21,13 @@ export async function getServerSideProps(context) {
             console.error(e)
             console.error("id:" + id)
         }
-        const data = tempData
-        return data;
+        return tempData;
     })));
 
     if (!allData) {
+        allData = []
         return {
-            notFound: true,
+            props: { allData },
         }
     }
 
