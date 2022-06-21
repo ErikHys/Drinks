@@ -49,10 +49,10 @@ export function DrinkNoLink(data){
 export function DrinkRemove(data){
     return (
         <button className={styles.card} onClick={ () => {
-            fetch( "/api/queue/" + data.id).then(r => {
-                console.log("/api/queue/" + data.id)
+            fetch( "https://drinks-tau.vercel.app/api/queue/" + data.id).then(r => {
+                console.log("https://drinks-tau.vercel.app/api/queue/" + data.id)
             });
-            window.location.reload();
+            // window.location.reload();
         }}>
             <h1>
                 {data.title}
