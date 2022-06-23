@@ -20,7 +20,7 @@ export default function Order({ queueInfo }){
                 <a>
                     Order received, go to queue!<br />
                     Queue number: {queueInfo.number+1}<br />
-                    Vipps to 40104468
+                    Vipps to 40104468 or 45860443
                 </a>
             </Link>
         </h2>
