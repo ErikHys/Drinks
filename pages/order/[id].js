@@ -18,8 +18,8 @@ export default function Order({ queueInfo }){
         <h2 className={styles.description}>
             <Link href="/queue/queue">
                 <a>
-                    Order received, go to queue!<br>
-                    Queue number: {queueInfo.number+1}<br>
+                    Order received, go to queue!<br />
+                    Queue number: {queueInfo.number+1}<br />
                     Vipps to 40104468
                 </a>
             </Link>
