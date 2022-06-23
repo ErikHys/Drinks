@@ -10,20 +10,23 @@ export async function getServerSideProps() {
 
     let jsonData = JSON.parse(a)
     jsonData.ids = jsonData.ids.split(',')
-    let allData = (await Promise.all(jsonData.ids.map(async (id) => {
-        const res = await fetch(process.env.siteUrl + "/api/drinks/" + id)
-        const rawData = await res.json()
-        const a = rawData.replace('\n', '')
-        let tempData = {"id": id}
-        try {
-            tempData = JSON.parse(a)
-        } catch (e) {
-            console.error(e)
-            console.error("id:" + id)
-        }
-        return tempData;
-    })));
+    let allData = null
+    if (jsonData.ids.length > 0 && jsonData.ids[0] !== '') {
+        allData = (await Promise.all(jsonData.ids.map(async (id) => {
+            const res = await fetch(process.env.siteUrl + "/api/drinks/" + id)
+            const rawData = await res.json()
+            const a = rawData.replace('\n', '')
+            let tempData = {"id": id}
+            try {
+                tempData = JSON.parse(a)
+            } catch (e) {
+                console.error(e)
+                console.error("id:" + id)
+            }
 
+            return tempData;
+        })));
+    }
     if (!allData) {
         allData = []
         return {
