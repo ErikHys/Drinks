@@ -86,7 +86,7 @@ export async function getStaticProps() {
         } catch (e) {
             console.error(e)
             console.error("id:" + id)
-            console.error("json[42]" + a[42])
+            console.error("json[66]" + a[66])
             console.error("json" + a)
         }
         return tempData;
