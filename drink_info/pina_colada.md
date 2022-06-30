@@ -3,11 +3,6 @@ title: 'Pina Colada'
 drinkType: 'rum'
 img: '/drink_imgs/pina.jpg'
 ---
-"If you like pina coladas
-And gettin' caught in the rain
-If you're not into yoga
-If you have half a brain
-If you like makin' love at midnight
-In the dunes on the cape
-Then I'm the love that you've looked for
-Write to me and escape"
+If you like pina coladas <br>
+and getting caught in the rain <br>
+...
