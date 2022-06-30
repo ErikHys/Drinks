@@ -86,6 +86,7 @@ export async function getStaticProps() {
         } catch (e) {
             console.error(e)
             console.error("id:" + id)
+            console.error("json[42]" + tempData[42])
         }
         return tempData;
     }))).filter((drinkInfo) => {
