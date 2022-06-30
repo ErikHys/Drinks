@@ -3,7 +3,7 @@ title: 'Pina Colada'
 drinkType: 'rum'
 img: '/drink_imgs/pina.jpg'
 ---
-"If you like piña coladas
+"If you like pina coladas
 And gettin' caught in the rain
 If you're not into yoga
 If you have half a brain
