@@ -9,7 +9,7 @@ export async function getStaticProps(context) {
     const a = rawData.replace('\n', '')
     let jsonData = JSON.parse(a)
     jsonData.ids = jsonData.ids.split(',')
-    const allData = (await Promise.all(jsonData.ids.filter(ida => ida !== "pina_colada").map(async (id) => {
+    const allData = (await Promise.all(jsonData.ids.map(async (id) => {
         const res = await fetch(process.env.siteUrl + "/api/drinks/" + id)
         const rawData = await res.json()
         const a = rawData.replace('\n', '')
