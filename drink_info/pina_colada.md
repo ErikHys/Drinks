@@ -1,6 +1,6 @@
 ---
 title: 'Pina Colada'
 drinkType: 'rum'
-img: '/drink_imgs/pina.jpg'
+img: '/drink_imgs/temp.jpg'
 ---
-empty
+?
