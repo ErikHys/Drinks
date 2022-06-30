@@ -3,4 +3,4 @@ title: 'Manhattan'
 drinkType: 'whisky'
 img: '/drink_imgs/temp.jpg'
 ---
-empty
+Whiskey, sweet vermouth and bitters, do you need anything else?
